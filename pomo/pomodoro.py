@@ -1,11 +1,10 @@
-import re
 import sys
 import time
-import string
 import subprocess
 
 from pydoro import work_time, break_short, break_long, audio_file
 import pomo
+
 
 # Start pomodoro timer
 def pomodoro(todo_path,todo_linenmbr):
@@ -24,29 +23,7 @@ def pomodoro(todo_path,todo_linenmbr):
     cnt = 1
     while True:
         if cnt % 2 == 1:
-            # Read todo.txt
-            with open(todo_path+'/todo.txt', 'r') as file:
-                todo_file = file.readlines()
-
-            t = todo_file[int(todo_linenmbr)-1]
-            regex = re.compile("\(#pomo [0-9]*\)")
-
-            # If no previous pomodoros
-            todo_pomo = regex.findall(t)
-            if len(todo_pomo) == 0:
-                t = t[:-1] + " (#pomo 1)\n"
-            else:
-                regex = re.compile("[0-9]+")
-                pomo_numbr = regex.findall(todo_pomo[0])
-
-                t = t[:-1-len(todo_pomo[0])-1] + " (#pomo " + str(int(pomo_numbr[0])+1) + ")\n"
-                
-            todo_file[int(todo_linenmbr)-1] = t
-            
-            # Write new todo.txt
-            with open(todo_path+'/todo.txt', 'w') as file:
-                file.writelines(todo_file)
-
+            t = pomo.increment(todo_path, todo_linenmbr)
             print("Working on: " + t[:-1])
                 
             # Write to logfile
