@@ -1,0 +1,5 @@
+# Personal files containing personal data
+*.json
+*.txt
+
+__pycache__
