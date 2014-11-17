@@ -8,7 +8,7 @@ import pomo
 work_time = 25
 break_short = 5
 break_long = 20
-audio_file = "/Users/storvik/developer/pydoro-todo.txt/pomo.wav"
+audio_file = os.path.realpath(__file__)[:-9] + "pomo.wav"
 
 def print_help():
     print("pydoro todo.txt-cli plugin by Storvik")
