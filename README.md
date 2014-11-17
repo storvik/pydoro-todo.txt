@@ -15,6 +15,7 @@ Features
 - List todos
 - Start pomodoros
 - Start/stop time logged to pydoro.log in todo folder
+- Increment/decrement pomodoro counter
 
 Installation
 ------------
@@ -34,9 +35,10 @@ Usage
 $ todo.txt pd [arguments]
 ```
 
-|Arguments       | Description                     |
-|----------------|---------------------------------|
-| ls             | List undone todo-files          |
-| start [number] | Start pomodoro on task [number] |
-
+|Arguments           | Description                        |
+|--------------------|------------------------------------|
+| ls                 | List undone todo-files             |
+| start [number]     | Start pomodoro on task [number]    |
+| increment [number] | Increment counter on task [number] |
+| decrement [number] | Decrement counter on task [number] |
 
