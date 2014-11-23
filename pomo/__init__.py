@@ -1,4 +1,5 @@
-__all__ = ['pomodoro',
+__all__ = ['commands',
+           'pomodoro',
            'start',
            'listpm',
            'writelog']
@@ -9,3 +10,4 @@ from .listpm import listpm
 from .writelog import writelog
 from .increment import increment
 from .decrement import decrement
+from .commands import start_commands, stop_commands

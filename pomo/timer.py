@@ -12,7 +12,7 @@ def timer(duration):
             remaining = duration-(i+1)
             sys.stdout.write("\r(%s) Remaining: %.0f minutes" % (prog_bar, remaining))
             sys.stdout.flush()
-            time.sleep(1) # Replace with 60 in finished addon
+            time.sleep(60) # Replace with 60 in finished addon
     except KeyboardInterrupt:
         print("\npydoro: Exiting..")
         exit(-1)

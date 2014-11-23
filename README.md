@@ -12,10 +12,11 @@ Tested on a Macbook Pro with python 3.4.
 Features
 --------
 
-- List todos
-- Start pomodoros
-- Start/stop time logged to pydoro.log in todo folder
-- Increment/decrement pomodoro counter
+- List todos,
+- Start pomodoros.
+- Start/stop time logged to pydoro.log in todo folder.
+- Increment/decrement pomodoro counter.
+- Run shell commands on start/stop.
 
 Installation
 ------------
@@ -42,3 +43,10 @@ $ todo.txt pd [arguments]
 | increment [number] | Increment counter on task [number] |
 | decrement [number] | Decrement counter on task [number] |
 
+Start/stop shell commands
+-------------------------
+Run specified commands on either start or stop.
+I use it to call my [pythonremote](https://github.com/storsnik/pythonremote) which sends a message to my phone to silence it.
+Store start commands in todo_path/pomo_startcmds.txt and stop commands in todo_path/pomo_stopcmds.txt.
+One command per line.
+If no file, pydoro omits start/stop commands. 

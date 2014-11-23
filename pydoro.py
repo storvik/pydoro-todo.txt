@@ -8,7 +8,7 @@ import pomo
 work_time = 25
 break_short = 5
 break_long = 20
-audio_file = os.path.realpath(__file__)[:-9] + "pomo.wav"
+audio_file = os.path.realpath(__file__)[:-9] + 'pomo.wav'
 
 def print_help():
     print("pydoro todo.txt-cli plugin by Storvik")
@@ -22,7 +22,7 @@ def print_help():
     
 if __name__ == '__main__':
 
-    todo_path = os.environ.get('TODO_DIR')
+    todo_path = os.environ.get('TODO_DIR') + '/'
 
     if len(sys.argv) < 3:
         print("pydoro: Wrong input...")
@@ -41,3 +41,4 @@ if __name__ == '__main__':
     else:
         print("pydoro: Invalid input parameters..\n")
         print_help()
+

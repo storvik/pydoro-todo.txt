@@ -2,7 +2,7 @@ import re
 import string
 
 def increment(todo_path, todo_linenmbr):
-    with open(todo_path+'/todo.txt', 'r') as file:
+    with open(todo_path + 'todo.txt', 'r') as file:
         todo_file = file.readlines()
 
     if int(todo_linenmbr) > len(todo_file):
@@ -25,7 +25,7 @@ def increment(todo_path, todo_linenmbr):
     todo_file[int(todo_linenmbr)-1] = t
             
     # Write new todo.txt
-    with open(todo_path+'/todo.txt', 'w') as file:
+    with open(todo_path + 'todo.txt', 'w') as file:
         file.writelines(todo_file)
 
     return t
