@@ -1,11 +1,27 @@
 import sys
 import time
 import subprocess
+import platform
 
 from pydoro import work_time, break_short, break_long, audio_file
 from .timer import timer
 from .increment import increment
 from .commands import start_commands, stop_commands
+
+
+PLAY_PROGRAMS = {
+    'Windows': 'wmplayer',
+    'Linux': 'aplay',
+    'Darwin': 'afplay',
+}
+
+
+PLAY_COMMAND = PLAY_PROGRAMS.get(platform.system(), 'afplay')
+
+
+def play(audio_file):
+    subprocess.call([PLAY_COMMAND, audio_file])
+
 
 # Start pomodoro timer
 def pomodoro(todo_path, todo_linenmbr):
@@ -33,7 +49,7 @@ def pomodoro(todo_path, todo_linenmbr):
                 logfile.write(log)
 
             # Play notification
-            subprocess.call(["afplay",audio_file])
+            play(audio_file)
 
             start_commands(todo_path)
 
@@ -43,8 +59,8 @@ def pomodoro(todo_path, todo_linenmbr):
             stop_commands(todo_path)
 
             # Play notification
-            subprocess.call(["afplay",audio_file])
 
+            play(audio_file)
             # Write to logfile
             log = time.asctime()+" - stopped todo: "+todo[:-1]+"\n"
             with open(todo_path+'pydoro.log','a+') as logfile:
@@ -64,7 +80,7 @@ def pomodoro(todo_path, todo_linenmbr):
                     timer(break_short)
 
                 # Play notification
-                subprocess.call(["afplay",audio_file])
+                play(audio_file)
 
                 print("\npydoro: Break finished.")
                 answr = input("You want to continue with pomodoros [y/n]: ")
